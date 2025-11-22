@@ -24,6 +24,14 @@ Lookup perf_model to generate model trace. Also uses memory_model for tensor siz
 ## `config_generator.py`
 Generates network and memory config json file automatically. You can change it according to your needs.
 
+### Supported Network Topologies
+The ASTRA-Sim network backend supports three topology building blocks:
+- **Ring**: Ring topology connecting NPUs in a circular fashion
+- **FullyConnected**: Fully connected topology where each NPU connects to all others (current default)
+- **Switch**: Switch-based topology for NPU interconnection
+
+The `create_network_config()` function currently uses `FullyConnected` topology by default. To use a different topology, modify the topology field in the function.
+
 ## `pim.py`
 Gets the pim trace and add the pim operator in the trace.
 
